@@ -2,20 +2,18 @@
 
 @section('content')
 
-<div class="register-box bg-dark.bg-gradient text-center" >
-  <div class="card card-outline">
-    <div class="card-header text-center" style="background-color: #FBF9F1;">
-      <a href="#">
-      <img src="{{asset('backend/dist/img/prueba2.png')}}" style="width: 60%; height: auto;">
-      </a>
+<div class="d-flex container justify-content-center mt-5 gap-3 ">
+  <div class="bg-white rounded col-5 ">
+    <div class=" text-center mt-5 ">
+      <a href="../../index2.html" class="h1"><b>El Vecindario</b></a>
     </div>
-    <div class="card-body" style="background-color: #FBF9F1;">
-      <p class="login-box-msg" style="font-weight: bold;">Register a new membership</p>
-      
+    <div class="card-body px-3">
+      <p class="login-box-msg">registrate nuevo estudiante</p>
+
       <form action="{{ route('register') }}" method="post">
-        @csrf
-        <div class="input-group mb-3 ">
-          <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Full Name">
+      @csrf
+        <div class="input-group mb-3">
+        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nombre">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -23,7 +21,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
+        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder= "Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -31,7 +29,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
+        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder= "Contraseña">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -39,30 +37,30 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
+        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder= "Confirmar">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
-        <div class="row text-center">
-          <!-- /.col -->
-          <div class="col-4 text-center">
-            <button type="submit" class="btn btn-light btn-block" style="background-color: #92C7CF; color:white">Register</button>
+        <div class="d-flex container mb-3 mt-5">
+          <div class="col-4">
+            <button type="submit" class="btn btn-block bg-success">Registrar</button>
           </div>
-          <!-- /.col -->
+          <div class="ms-auto ">
+            <a  class="text-success" href="{{route('login')}}" class=" ">Ya tengo cuenta</a>
+          </div>
         </div>
       </form>
-
-      <div class="social-auth-links text-center">
-
-      </div>
-
-      <a href="login" class="text-center" style="color: black;">I already have an account</a>
+      
     </div>
-    <!-- /.form-box -->
-  </div><!-- /.card -->
+  </div>
+  <div class="col-3 bg-light rounded">
+    <img src="{{ asset('backend/dist/img/mercado/logoo.png') }}" class="img-fluid" alt="logo">
+    <p class="bg-success bg-gradient pt-2 px-4 rounded shadow-lg ">
+    Con mochila al hombro y sueños en el corazón, damos los primeros pasos en esta emocionante aventura llamada educación. En el colegio, aprenderemos, creceremos y construiremos recuerdos que durarán toda la vida.
+    </p>
+  </div>
 </div>
-
 @endsection

@@ -63,12 +63,7 @@
 											<input type="text" class="form-control" name="price" placeholder="Price" autocomplete="off" value="{{ old('price') }}">
 										</div>
                                         <div class="row">
-                                        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Image</label>
-                                                <input type="file" class="form-control-file" name="image" id="image" >
-                                            </div>
-                                        </div>
+                                        
 								</div>
 									</div>
 								</div>

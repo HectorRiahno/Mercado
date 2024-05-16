@@ -19,7 +19,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders=Order::select('customers.name', 'customers.identification_docuemnt','orders.date','orders.price','orders.status')
+        $orders=Order::select('customers.name', 'customers.identification_document','orders.date','orders.price','orders.status')
         -> join ('customers','customer_id','=','orders.customer_id')->get();
         return view('orders.index', compact('orders'));
     }
@@ -54,25 +54,18 @@ class OrderController extends Controller
             $order -> route = $request->route;
             $order -> save();
 
-            $idorder= $order ->id;
+            $order= $order ->id;
             
             $cont = 0;
             
-            //TODO: ARREGLAR ESTA PARTE
-            // while ($cont < count($item)) {
-            //     $detailorders = new DetailOrder();
-            //     $detailorders -> order_id= $idorder;
-            //     $detailorders -> product_id= $idproduct;
-            //     $detailorders -> quantity= $quantity;
-            //     $detailorders -> subtotal = $subtotal;                
-
-            // }
+            
             DB::commit();
             return redirect()->route('orders.index')->with('successMsg', 'Exitoso');
 
         } catch (Exception $e) {
-            return redirect()->back()->with('successMsg', 'Error to register the info');
             DB::rollBack();
+            return redirect()->back()->with('successMsg', 'Error to register the info');
+            
         }
     }
 
