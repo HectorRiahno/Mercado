@@ -23,14 +23,13 @@
 								<thead class="text-primary">
 									<tr>
 										<th width="10px">ID</th>
-										<th>Name</th>
 										<th>Identification Document</th>
+										<th>Name</th>
 										<th>Address</th>
 										<th>Phone Number</th>
 										<th>Email</th>
-										<th>Image</th>
 										<th>Status</th>
-										<th>Register By</th>
+										
 										<th width="50px">Acción</th>
 									</tr>
 								</thead>
@@ -38,22 +37,22 @@
 									@foreach($customers as $customer)
 									<tr>
 										<td>{{ $customer -> id}}</td>
-                    					<td>{{ $customer -> name}}</td>
 										<td>{{ $customer -> identification_document}}</td>
+                    					<td>{{ $customer -> name}}</td>
                     					<td>{{ $customer -> address}}</td>
                     					<td>{{ $customer -> phone_number}}</td>
                     					<td>{{ $customer -> email}}</td>
-										<td>
-										@if ($customer->image!=null)
+										<!--<td>
+										 @if ($customer->image!=null)
 											<img class="img-responsive img-thumbnail" src="{{ asset('uploads/customers/'.$customer->image) }}" style="height: 70px; width: 70px" alt="">
 										@elseif ($customer->image==null)
 										@endif
-										</td>
+										</td> -->
 										<td>
 											<input data-id="{{$customer->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" 
 											data-toggle="toggle" data-on="Active" data-off="Inactive" {{ $customer->status ? 'checked' : '' }}>
 										</td>
-										<td>{{ $customer -> registerby}}</td>
+										<!-- <td>{{ $customer -> registerby}}</td> -->
 										<td>
 											<a href="{{ route('customers.edit',$customer->id) }}" class="btn btn-info btn-sm" title="Edit"><i class="fas fa-pencil-alt"></i></a>
 											<form class="d-inline delete-form" action="{{ route('customers.destroy', $customer) }}"  method="POST">

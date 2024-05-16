@@ -33,29 +33,28 @@ class CustomerController extends Controller
      */
     public function store(CustomerRequest $request)
     {
-        $image = $request->file('image');
-			$slug = str::slug($request->name);
-			if (isset($image))
-			{
-				$currentDate = Carbon::now()->toDateString();
-				$imagename = $slug.'-'.$currentDate.'-'. uniqid() .'.'. $image->getClientOriginalExtension();
+        // $image = $request->file('image');
+		// 	$slug = str::slug($request->name);
+		// 	if (isset($image))
+		// 	{
+		// 		$currentDate = Carbon::now()->toDateString();
+		// 		$imagename = $slug.'-'.$currentDate.'-'. uniqid() .'.'. $image->getClientOriginalExtension();
 
-				if (!file_exists('uploads/customers'))
-				{
-					mkdir('uploads/customers',0777,true);
-				}
-				$image->move('uploads/customers',$imagename);
-			}else{
-				$imagename = "";
-			}
+		// 		if (!file_exists('uploads/customers'))
+		// 		{
+		// 			mkdir('uploads/customers',0777,true);
+		// 		}
+		// 		$image->move('uploads/customers',$imagename);
+		// 	}else{
+		// 		$imagename = "";
+		// 	}
 
             $customer = new Customer();
-			$customer->identification_docuemnt = $request->identification_docuemnt;
+			$customer->identification_document = $request->identification_document;
 			$customer->name = $request -> name;
 			$customer->address = $request->address;
 			$customer->phone_number = $request->phone_number;
             $customer->email = $request->email;
-			$customer->image = $imagename;
             $customer->status = 1;
             $customer->registerby = $request->user()->id;
 			$customer->save();
@@ -87,29 +86,27 @@ class CustomerController extends Controller
 
 			$customer = Customer::find($id);
 			
-			$image = $request->file('image');
-			$slug = str::slug($request->name);
-			if (isset($image))
-			{
-				$currentDate = Carbon::now()->toDateString();
-				$imagename = $slug.'-'.$currentDate.'-'. uniqid() .'.'. $image->getClientOriginalExtension();
+			// $image = $request->file('image');
+			// $slug = str::slug($request->name);
+			// if (isset($image))
+			// {
+			// 	$currentDate = Carbon::now()->toDateString();
+			// 	$imagename = $slug.'-'.$currentDate.'-'. uniqid() .'.'. $image->getClientOriginalExtension();
 
-				if (!file_exists('uploads/customers'))
-				{
-					mkdir('uploads/customers',0777,true);
-				}
-				$image->move('uploads/customers',$imagename);
-			}else{
-				$imagename = $customer->image;
-			}
+			// 	if (!file_exists('uploads/customers'))
+			// 	{
+			// 		mkdir('uploads/customers',0777,true);
+			// 	}
+			// 	$image->move('uploads/customers',$imagename);
+			// }else{
+			// 	$imagename = $customer->image;
+			// }
 
 			$customer->identification_document = $request->identification_document;
 			$customer->name = $request -> name;
 			$customer->address = $request->address;
 			$customer->phone_number = $request->phone_number;
             $customer->email = $request->email;
-			$customer->image = $imagename;
-            $customer->status = 1;
             $customer->registerby = $request->user()->id;
 			$customer->save();
 

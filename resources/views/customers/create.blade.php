@@ -24,7 +24,7 @@
 									<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
 										<div class="form-group label-floating">
 											<label class="control-label">Name <strong style="color:red;">(*)</strong></label>
-											<input type="text" class="form-control" name="name" placeholder="Example, Pedro Perez" autocomplete="off" value="{{ old('name') }}" required>
+											<input type="text" class="form-control" name="name" placeholder="Example: juanito alimaña" autocomplete="off" value="{{ old('name') }}" required>
 										</div>
 										<div class="form-group label-floating">
 											<label class="control-label">Identification Document <strong style="color:red;">(*)</strong></label>
@@ -32,11 +32,7 @@
 										</div>
                                         <div class="form-group label-floating">
 											<label class="control-label">Address <strong style="color:red;">(*)</strong></label>
-                                        	<div class="form-group label-floating">
-                                        	    <div style="display:flex;">
-											        <textarea class="form-control" name="address" rows="3" placeholder="Enter your address"></textarea>
-                                        	    </div>
-											</div>
+											<input type="text" class="form-control" name="address" placeholder="Enter your address" autocomplete="off" value="{{ old('address') }}" required>
 										</div>
                                         <div class="form-group label-floating">
 											<label class="control-label">Phone Number <strong style="color:red;">(*)</strong></label>
@@ -45,16 +41,7 @@
                                         <div class="form-group label-floating">
 											<label class="control-label">Email<strong style="color:red;">(*)</strong></label>
 											<input type="email" class="form-control" name="email" placeholder="email@example.com" autocomplete="off" value="{{ old('email') }}" required>
-										</div>
-                                        <div class="row">
-                                        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Image</label>
-                                                <input type="file" class="form-control-file" name="image" id="image" >
-                                            </div>
-                                        </div>
-								</div>
-									</div>
+										</div>                                        
 								</div>
 								<input type="hidden" class="form-control" name="estado" value="1">
 								<input type="hidden" class="form-control" name="registradopor" value="{{ Auth::user()->id }}">

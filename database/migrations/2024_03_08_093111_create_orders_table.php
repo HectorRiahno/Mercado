@@ -18,7 +18,6 @@ return new class extends Migration
             $table -> decimal ('price', 8,2);
             $table -> string ('status') -> nullable();
             $table -> string ('registerby') -> nullable();
-            $table -> string('route') -> nullable();
             $table->timestamps();
             $table -> foreign('customer_id')-> references('id')->on('customers');
         });
